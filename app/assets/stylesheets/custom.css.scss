@@ -1,0 +1,31 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* base */
+textarea {
+	resize: both;
+}
+
+/* layout */
+.footer {
+	border-top: 1px solid $gray-lighter;
+}
+
+/* modules */
+.logo {
+	color: white;
+	text-transform: uppercase;
+
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+/* utilities */
+.is-hidden {
+	display: none;
+}
+.weak {
+	color: $gray-light;
+}
