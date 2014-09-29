@@ -5,6 +5,12 @@
 textarea {
 	resize: both;
 }
+input,
+select,
+textarea {
+	width: 100%;
+	margin-bottom: 1em;
+}
 
 /* layout */
 .footer {
@@ -19,6 +25,12 @@ textarea {
 	&:hover {
 		color: white;
 		text-decoration: none;
+	}
+}
+.field_with_errors {
+	@extend .has-error;
+	.form-control {
+		color: $state-danger-text;
 	}
 }
 
