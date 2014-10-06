@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(params[:session][:password])
       log_in @user
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user # Same as user_path(user)
+      redirect_back_or @user
   	else
   		flash.now[:danger] = "Sorry, we can't find that username/password combination"
   		render 'new'
