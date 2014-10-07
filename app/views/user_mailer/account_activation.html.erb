@@ -1,0 +1,4 @@
+<h1>sample</h1>
+<p>Hi <%= @user.name %>,</p>
+<p>Welcome to sample. Activate your account by clicking on the link below:</p>
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
