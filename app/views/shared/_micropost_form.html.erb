@@ -1,0 +1,25 @@
+<%= form_for(@micropost, html: { multipart: true }) do |f| %>
+<% # f.object refers to @micropost, since shared/error_messages typically uses @user. %>
+<%= render 'shared/error_messages', object: f.object %>
+<div class="field">
+<%= f.text_area :content, placeholder: "Compose new micropost…" %>
+</div>
+<%= f.submit "Post", class: "btn btn-primary" %>
+<%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+<% end %>
+
+<script>
+document.getElementById('micropost_picture').addEventListener('change', function () {
+		var pictureSize = this.files[0].size / (1024 * 1024);
+
+		if (pictureSize > 5) {
+			var message = 'The maximum file size is 5MB. Please choose a smaller file.',
+					p = document.createElement('p');
+
+			p.setAttribute('class', 'alert alert-danger');
+			p.textContent = message;
+
+			this.parentNode.appendChild(p);
+		}
+});
+</script>

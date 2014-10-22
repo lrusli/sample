@@ -38,6 +38,21 @@ textarea {
 	font-weight: normal;
 }
 
+.microposts {
+	list-style: none;
+}
+.micropost-avatar {
+	float: left;
+	margin-left: -2em;
+}
+.micropost-user,
+.micropost-content {
+	margin-bottom: 0;
+}
+.micropost-timestamp {
+	color: $gray-light;
+}
+
 /* utilities */
 .is-hidden {
 	display: none;
