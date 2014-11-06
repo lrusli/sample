@@ -70,4 +70,33 @@ class UserTest < ActiveSupport::TestCase
  			@user.destroy
  		end
  	end
+
+ 	test "should follow and unfollow a user" do
+ 		lawrence = users(:lawrence)
+ 		isaac 	 = users(:isaac)
+ 		assert_not lawrence.following?(isaac)
+ 		lawrence.follow(isaac)
+ 		assert lawrence.following?(isaac)
+ 		assert isaac.followers.include?(lawrence)
+ 		lawrence.unfollow(isaac)
+ 		assert_not lawrence.following?(isaac)
+ 	end
+
+ 	test "feed should have the right posts" do
+ 		lawrence = users(:lawrence)
+ 		larry    = users(:larry)
+ 		isaac		 = users(:isaac)
+ 		# Posts from followed user.
+ 		larry.microposts.each do |post_following|
+ 			assert lawrence.feed.include?(post_following)
+ 		end
+ 		# Posts from self.
+ 		lawrence.microposts.each do |post_self|
+ 			assert lawrence.feed.include?(post_self)
+ 		end
+ 		# Posts from unfollowed user.
+ 		isaac.microposts.each do |post_unfollowed|
+ 			assert_not lawrence.feed.include?(post_unfollowed)
+ 		end
+ 	end
 end

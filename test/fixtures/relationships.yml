@@ -1,0 +1,15 @@
+one:
+  follower: lawrence
+  followed: larry
+
+two:
+  follower: lawrence
+  followed: bill 
+
+three:
+  follower: larry
+  followed: lawrence
+
+four:
+  follower: isaac 
+  followed: lawrence
